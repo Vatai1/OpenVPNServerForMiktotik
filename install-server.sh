@@ -83,9 +83,9 @@ openssl x509 -req -days 3650 -in /etc/openvpn/mikrotik-ssl/client-${PORT}.crt \
 
 while true;
 do
-        SUB1=$(seq 0 254 | sort -R | head -n 1)
-        SUB2=$(seq 0 254 | sort -R | head -n 1)
-        if [ $(ip route | grep "10.${SUB1}.${SUB2}.0/24" | wc -l) == "0" ]; then
+        SUB1=2
+        SUB2=2
+        if [[ $(ip route | grep "10.${SUB1}.${SUB2}.0/24" | wc -l) == "0 ]]; then
                 break;
         fi
 done
